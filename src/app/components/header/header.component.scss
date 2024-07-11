@@ -2,6 +2,9 @@
     height: 68px;
     z-index: 10;
     background: #8f7f7f;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .navItems {
