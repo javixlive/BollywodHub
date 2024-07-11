@@ -1,0 +1,11 @@
+.navBar {
+    height: 68px;
+    z-index: 10;
+    background: #8f7f7f;
+}
+
+.navItems {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+}
