@@ -8,19 +8,27 @@ import { LoginComponent } from './pages/login/login.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
+import { MovieCardComponent } from './components/movie-card/movie-card.component';
+import { MovieCardDetailsComponent } from './components/movie-card-details/movie-card-details.component';
+import { HttpClientModule } from '@angular/common/http';
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     FooterComponent,
+    MovieCardDetailsComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
     CommonModule,
     HeaderComponent,
     HomeComponent,
-    AppRoutingModule
+    MovieCardComponent,
+    HttpClientModule,
+    AppRoutingModule,
   ],
   providers: [
     provideClientHydration()

@@ -1,0 +1,15 @@
+<div class="column" >
+    <div class="col-md3 mb-5" *ngFor="let movie of movies">
+        <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" class="img-thumbnail img-fluid cursos"/>
+        <div>
+            <h3 class="mt-2">{{movie.title}}</h3>
+            <div class="row align-items-center">
+                <div class="col-10 text-white">
+                    <!-- TODO: agregar fa-star de fontawesome -->
+                    <!-- <i class="fas fa-star"></i> -->
+                </div>
+                <div class="col-2 text-black">{{movie.vote_average}}</div>
+            </div>
+        </div>
+    </div>
+</div>
