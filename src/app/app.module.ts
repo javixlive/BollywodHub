@@ -18,8 +18,7 @@ import { ScrollTopComponent } from './components/scroll-top/scroll-top.component
   declarations: [
     AppComponent,
     LoginComponent,
-    FooterComponent,
-    MovieCardDetailsComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +29,8 @@ import { ScrollTopComponent } from './components/scroll-top/scroll-top.component
     HttpClientModule,
     AppRoutingModule,
     ScrollTopComponent,
-    SearchComponent
+    SearchComponent,
+    MovieCardDetailsComponent
   ],
   providers: [
     provideClientHydration()

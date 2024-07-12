@@ -23,13 +23,14 @@ export class HomeComponent implements OnInit {
     const pos = (document.documentElement.scrollTop || document.body.scrollTop) + 1500;
     const max = (document.documentElement.scrollHeight || document.body.scrollHeight);
     //when position is bigger it will load more titles
-    console.log(pos, max)
     if(pos > max) {
       this.loadMoreMovies();
     }
   }
 
-  constructor(private moviesSvc:MovieService){}
+  constructor(private moviesSvc:MovieService){
+    this.moviesSvc.resetMoviePage();
+  }
 
   ngOnInit(): void {
       this.loadMovies();

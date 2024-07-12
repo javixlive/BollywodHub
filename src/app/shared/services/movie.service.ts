@@ -1,7 +1,9 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { Observable, map, of, tap } from "rxjs";
+import { Observable, catchError, map, of, tap } from "rxjs";
 import { TitlesResponse, Movie } from "../../interface/titles.interface";
+import { MovieDetails } from "../../interface/details.interface";
+import { Cast, Credits } from "../../interface/credits.interface";
 
 
 // require("dotenv").config();
@@ -59,6 +61,26 @@ export class MovieService {
         return this.http.get<TitlesResponse>(`${url}/search/movie?query=${text}&language=es-ES&page=1`,{headers}).pipe(
             map(res => res.results)
         )
+    }
+
+    //This is to find specific info on a certain movie for MovieCardDetails
+    movieDetails(id:string) {
+        return this.http.get<MovieDetails>(`${url}/movie/${id}?language=es-ES`,{headers}).pipe(
+            catchError(err=> of(null))
+        )
+    }
+    movieCredits(id:string):Observable<Cast[] | null> {
+        return this.http.get<Credits>(`${url}/movie/${id}/credits?language=es-ES`,{headers}).pipe(
+
+            map(res=>res.cast),
+            catchError(err=> of(null))
+        )
+    }
+    ///////////
+
+
+    resetMoviePage() {
+        this.moviePage = 1;
     }
 
 }
