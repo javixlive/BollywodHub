@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { Observable, map } from "rxjs";
+import { Observable, map, of, tap } from "rxjs";
 import { TitlesResponse, Movie } from "../../interface/titles.interface";
 
 
@@ -28,6 +28,9 @@ const headers = {Authorization:token};
 })
 
 export class MovieService {
+
+    private moviePage = 1;
+    public loading = false;
         
     // http = inject(HttpClient);
 
@@ -39,8 +42,16 @@ export class MovieService {
 
     //GET request
     getMovie():Observable<Movie[]>{
-        return this.http.get<TitlesResponse>(`${url}/movie/now_playing?language=es-ES&page=1`,{headers}).pipe(
-        map((response:any)=> response.results)
+
+        if(this.loading) return of([]) //of emits values in a sequence
+        this.loading = true
+
+        return this.http.get<TitlesResponse>(`${url}/movie/now_playing?language=es-ES&page=${this.moviePage}`,{headers}).pipe(
+        map((response:any)=> response.results),
+        tap(() => {
+            this.moviePage += 1;
+            this.loading = false
+        })
         )
     }
 

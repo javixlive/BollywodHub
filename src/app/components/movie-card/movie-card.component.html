@@ -1,4 +1,4 @@
-<div class="column" >
+<div class="row" >
     <div class="col-md3 mb-5" *ngFor="let movie of movies">
         <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" class="img-thumbnail img-fluid cursos"/>
         <div>
@@ -8,7 +8,12 @@
                     <!-- TODO: agregar fa-star de fontawesome -->
                     <!-- <i class="fas fa-star"></i> -->
                 </div>
-                <div class="col-2 text-black">{{movie.vote_average}}</div>
+                <!-- <div class="col-2 text-black">{{movie.vote_average}}</div> -->
+                 <div class="col-2 text-black">{{movie.overview}}</div>
+                 <div>
+                    <button type="button" class="btn btn-primary" (click)="onMovieClick(movie)">Ver</button>
+                    <button type="button" class="btn btn-primary" >Ocultar</button>
+                 </div>
             </div>
         </div>
     </div>

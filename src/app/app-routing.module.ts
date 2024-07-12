@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
-import { MovieCardComponent } from './components/movie-card/movie-card.component';
 import { SearchComponent } from './components/search/search.component';
+import { MovieCardDetailsComponent } from './components/movie-card-details/movie-card-details.component';
 
 const routes: Routes = [
   {path: 'home', component:HomeComponent},
-  {path: 'movie/:id', component:MovieCardComponent},
+  {path: 'movie/:id', component:MovieCardDetailsComponent},
   {path: 'search/:text', component:SearchComponent},
 
   {path: '', pathMatch:'full', redirectTo:'/home'},
