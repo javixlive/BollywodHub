@@ -55,5 +55,11 @@ export class MovieService {
         )
     }
 
+    searchMovie(text:string):Observable<Movie[]> {
+        return this.http.get<TitlesResponse>(`${url}/search/movie?query=${text}&language=es-ES&page=1`,{headers}).pipe(
+            map(res => res.results)
+        )
+    }
+
 }
 

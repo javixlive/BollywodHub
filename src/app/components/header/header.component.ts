@@ -1,5 +1,6 @@
 import { NgFor } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   standalone: true,
@@ -9,5 +10,16 @@ import { Component } from '@angular/core';
   imports: [NgFor]
 })
 export class HeaderComponent {
-  navList = ["Home", "Genres", "Favorites"]
+
+  constructor(private router:Router){}
+
+  ngOnInit(): void {
+
+  }
+
+  searchMovie(text:string) {
+    text = text.trim();
+    if(text.length === 0) return;
+    this.router.navigate(['/search',text]);
+  }
 }

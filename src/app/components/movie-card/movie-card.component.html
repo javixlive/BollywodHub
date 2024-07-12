@@ -1,5 +1,6 @@
 <div class="row" >
     <div class="col-md3 mb-5" *ngFor="let movie of movies">
+        <!-- TODO: change size of the alt poster pic -->
         <img [src]="movie.poster_path | poster" class="img-thumbnail img-fluid cursos"/>
         <div>
             <h3 class="mt-2">{{movie.title}}</h3>

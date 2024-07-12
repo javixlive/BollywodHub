@@ -20,7 +20,6 @@ import { ScrollTopComponent } from './components/scroll-top/scroll-top.component
     LoginComponent,
     FooterComponent,
     MovieCardDetailsComponent,
-    SearchComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,6 +30,7 @@ import { ScrollTopComponent } from './components/scroll-top/scroll-top.component
     HttpClientModule,
     AppRoutingModule,
     ScrollTopComponent,
+    SearchComponent
   ],
   providers: [
     provideClientHydration()
