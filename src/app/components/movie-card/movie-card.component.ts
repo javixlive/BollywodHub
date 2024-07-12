@@ -2,11 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { Movie } from '../../interface/titles.interface';
 import { Router } from '@angular/router';
+import { PipesModule } from '../../pipes/pipes.module';
 
 @Component({
   selector: 'app-movie-card',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, PipesModule],
   templateUrl:'movie-card.component.html',
   styleUrl: 'movie-card.component.scss'
 })

@@ -20,9 +20,10 @@ export class HomeComponent implements OnInit {
   //Allows to work directly with the DOM for infinite scroll
   @HostListener('window:scroll', ['$event'])
   onScroll() {
-    const pos = (document.documentElement.scrollTop || document.body.scrollTop) + 1000;
+    const pos = (document.documentElement.scrollTop || document.body.scrollTop) + 1500;
     const max = (document.documentElement.scrollHeight || document.body.scrollHeight);
     //when position is bigger it will load more titles
+    console.log(pos, max)
     if(pos > max) {
       this.loadMoreMovies();
     }

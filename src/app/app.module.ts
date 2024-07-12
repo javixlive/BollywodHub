@@ -12,6 +12,7 @@ import { MovieCardComponent } from './components/movie-card/movie-card.component
 import { MovieCardDetailsComponent } from './components/movie-card-details/movie-card-details.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SearchComponent } from './components/search/search.component';
+import { ScrollTopComponent } from './components/scroll-top/scroll-top.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { SearchComponent } from './components/search/search.component';
     MovieCardComponent,
     HttpClientModule,
     AppRoutingModule,
+    ScrollTopComponent,
   ],
   providers: [
     provideClientHydration()
