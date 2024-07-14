@@ -18,10 +18,10 @@ Learn and apply the use of Angular, TypeScript and Testing
 
 ## Images of Project
 
-![1]('/public/Login_SignUp.png')
-![2]('/public/Home.png')
-![3]('/public/Movie_details.png')
-![4]('/public/Search.png')
+![1](public/Login_SignUp.png)
+![2](public/Home.png)
+![3](public/Movie_details.png)
+![4](public/Search.png)
 
 ## Instructions
 
