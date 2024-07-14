@@ -5,6 +5,8 @@ import { TitlesResponse, Movie } from "../../interface/titles.interface";
 import { MovieDetails } from "../../interface/details.interface";
 import { Cast, Credits } from "../../interface/credits.interface";
 
+import { environment } from "../../environment/environment";
+
 
 // require("dotenv").config();
 // const { TOKEN, URL } = process.env
@@ -21,8 +23,8 @@ import { Cast, Credits } from "../../interface/credits.interface";
 // }
 
 //Authorization to make API request
-const token = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhOWQwMmQ2Y2Y2NjdiOGM1N2Y3MjJkMmMxZTFmZDZhYyIsIm5iZiI6MTcyMDcxNzYwNi4yOTA3MzIsInN1YiI6IjY2OTAwZDBkZDlkN2JjMTc1YTA1NGE1OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.43J-NEgSgr_z_gjVbrs0JkuSP58c94kFIwmPsLumGqM";
-const url = 'https://api.themoviedb.org/3'
+const token = environment.TOKEN
+const url = environment.URL
 const headers = {Authorization:token};
 
 @Injectable({
@@ -33,12 +35,6 @@ export class MovieService {
 
     private moviePage = 1;
     public loading = false;
-        
-    // http = inject(HttpClient);
-
-    // getMovies() {
-    //     return this.http.get<any>('https://api.themoviedb.org/3/movie/', options)
-    // }
 
     constructor(private http:HttpClient) {}
 
@@ -48,7 +44,9 @@ export class MovieService {
         if(this.loading) return of([]) //of emits values in a sequence
         this.loading = true
 
-        return this.http.get<TitlesResponse>(`${url}/movie/now_playing?language=es-ES&page=${this.moviePage}`,{headers}).pipe(
+        return this.http.get<TitlesResponse>(
+            `${url}/movie/now_playing?language=es-ES&page=${this.moviePage}`,{headers}
+        ).pipe(
         map((response:any)=> response.results),
         tap(() => {
             this.moviePage += 1;
@@ -58,7 +56,9 @@ export class MovieService {
     }
 
     searchMovie(text:string):Observable<Movie[]> {
-        return this.http.get<TitlesResponse>(`${url}/search/movie?query=${text}&language=es-ES&page=1`,{headers}).pipe(
+        return this.http.get<TitlesResponse>(
+            `${url}/search/movie?query=${text}&language=es-ES&page=1`,{headers}
+        ).pipe(
             map(res => res.results)
         )
     }

@@ -7,6 +7,8 @@ import { throwError, BehaviorSubject, exhaustMap } from "rxjs";
 import { AuthResponseData } from "../interface/auth.interface";
 import { User } from "./user.model";
 
+import { environment } from "../environment/environment";
+
 
 const key =  'AIzaSyARZhjs6HkxJmZxbaEsYfpcAEdGx9CCbsU';
 
@@ -20,7 +22,7 @@ export class AuthService {
 
     signup(email: string, password: string) {
         return this.http.post<AuthResponseData>(
-            `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${key}`,
+            `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${environment.FIREBASEKEY}`,
             {
                 email: email,
                 password: password,
@@ -41,7 +43,7 @@ export class AuthService {
 
     login(email: string, password: string) {
         return this.http.post<AuthResponseData>(
-            `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${key}`,
+            `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${environment.FIREBASEKEY}`,
             {
                 email: email,
                 password: password,
