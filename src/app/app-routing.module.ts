@@ -4,12 +4,20 @@ import { HomeComponent } from './pages/home/home.component';
 import { SearchComponent } from './components/search/search.component';
 import { MovieCardDetailsComponent } from './components/movie-card-details/movie-card-details.component';
 import { AuthComponent } from './auth/auth.component';
+//import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
   {path: 'home', component:HomeComponent},
   {path: 'movie/:id', component:MovieCardDetailsComponent},
   {path: 'search/:text', component:SearchComponent},
   {path: 'auth', component:AuthComponent},
+
+  //TODO: finish favorites..
+  // {
+  //   path: 'favorites',
+  //   component: ,
+  //   canActivate: [AuthGuard]
+  // },
   
 
   {path: '', pathMatch:'full', redirectTo:'/home'},

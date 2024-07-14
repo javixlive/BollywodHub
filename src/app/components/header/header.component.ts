@@ -1,20 +1,31 @@
-import { NgFor } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { NgFor, NgIf } from '@angular/common';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../../auth/auth.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   standalone: true,
   selector: 'app-header',
   templateUrl: 'header.component.html',
   styleUrl: 'header.component.scss',
-  imports: [NgFor]
+  imports: [NgFor, NgIf]
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit, OnDestroy{
 
-  constructor(private router:Router){}
+  isAuthenticated = false;
+  private userSub: Subscription;
+
+  constructor(
+    private router:Router, 
+    private authService: AuthService
+  ){}
+
 
   ngOnInit(): void {
-
+    this.userSub = this.authService.user.subscribe(user => {
+      this.isAuthenticated = !!user; //!!user is the same as !user ? false: true 🤯
+    });
   }
 
   searchMovie(text:string) {
@@ -22,4 +33,13 @@ export class HeaderComponent {
     if(text.length === 0) return;
     this.router.navigate(['/search',text]);
   }
+
+  ngOnDestroy() {
+    this.userSub.unsubscribe();
+  }
+
+  onLogout() {
+    this.authService.logout();
+  }
+
 }
