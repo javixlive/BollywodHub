@@ -29,11 +29,9 @@
         <input #txtSearch class="form-control mr-sm-2" type="search" (keyup.enter)="searchMovie(txtSearch.value)" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="searchMovie(txtSearch.value)">Search</button>
       </div>
-      <ul>
-        <li>
-          <a class="nav-link" style="cursor: pointer;" *ngIf="isAuthenticated" (click)="onLogout()"> Log Out</a>
-          <a class="nav-link" href="/auth" style="cursor: pointer;" *ngIf="!isAuthenticated">Log in</a>
-        </li>
+      <ul class="navbar-nav">
+          <a class="nav-link link-info" style="cursor: pointer;" *ngIf="isAuthenticated" (click)="onLogout()"> Log Out</a>
+          <a class="nav-link link-info" href="/auth" style="cursor: pointer;" *ngIf="!isAuthenticated">Log in</a>
       </ul>
     </div>
   </nav>
