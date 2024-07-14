@@ -20,4 +20,8 @@ export class MovieCardComponent {
     this.router.navigate(['/movie', movie.id])
   }
 
+  onHideClick(movie:Movie) {
+
+  }
+
 }

@@ -10,6 +10,7 @@ import { AuthService } from './auth/auth.service';
 
 export class AppComponent implements OnInit {
 
+  title = 'BollywoodHub';
   constructor(private authService: AuthService) {}
   ngOnInit() {
     this.authService.autoLogin();

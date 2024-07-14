@@ -2,26 +2,49 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.8.
 
-## Development server
+# Spring 2 & 3
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+* BollywoodHub
+* Javier Montaño Rodriguez
+* kitty_bug @ discord
 
-## Code scaffolding
+## Description
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Interactive Movie Hub that shows Bollywood movies that allows you to search and see in depth details of the all the titles with built-in login function that allows you to hide, favorite movies.
 
-## Build
+## Objective
+
+Learn and apply the use of Angular, TypeScript and Testing
+
+## Images of Project
+
+![1]('/public/Login_SignUp.png')
+![2]('/public/Home.png')
+![3]('/public/Movie_details.png')
+![4]('/public/Search.png')
+
+## Instructions
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
-
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+Must create an `environment.ts` file with your own `Token Key Url` in order to work.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## How it was done
 
-## Further help
+Since it was my first time working with angular I didn't know the best practices for creating a new project, hence the testing part of the app was a mess at the end when i got to that part and i will work on migrating the project to a more suitable environment.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Asides from that must of the stuff implemented was from the Liderly crash course on Angular, big help!
+
+## Known Issues
+
+Jasmine/Karma can't detect any of the test modules, therefor all test and test coverage don't work at all. Will work on migrating it in these upcoming days to fix it :<
+
+Some very specific cards can break the styling.
+
+## Retrospective
+
+| What was done well? | What can I do differently? | What didn't go well? |
+------------------|----------------------------|-----------------------
+| Most things went really well for a first timer! | Create the project on a more efficient way that doesn't cause issues later on. | TESTS! and styles could be so much better with a bit more time.
