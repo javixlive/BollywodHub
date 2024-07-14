@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,16 +14,22 @@ import { MovieCardDetailsComponent } from './components/movie-card-details/movie
 import { HttpClientModule } from '@angular/common/http';
 import { SearchComponent } from './components/search/search.component';
 import { ScrollTopComponent } from './components/scroll-top/scroll-top.component';
+import { AuthComponent } from './auth/auth.component';
+import { LoadingSpinnerComponent } from './shared/loading-spinner.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    FooterComponent
+    FooterComponent,
+    AuthComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     HeaderComponent,
     HomeComponent,
     MovieCardComponent,
@@ -30,7 +37,7 @@ import { ScrollTopComponent } from './components/scroll-top/scroll-top.component
     AppRoutingModule,
     ScrollTopComponent,
     SearchComponent,
-    MovieCardDetailsComponent
+    MovieCardDetailsComponent,
   ],
   providers: [
     provideClientHydration()
