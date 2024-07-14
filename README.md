@@ -20,8 +20,9 @@ Learn and apply the use of Angular, TypeScript and Testing
 
 ![1](public/Login_SignUp.png)
 ![2](public/Home.png)
-![3](public/Movie_details.png)
-![4](public/Search.png)
+![3](public/Home_ZoomOut.png)
+![4](public/Movie_details.png)
+![5](public/Search.png)
 
 ## Instructions
 
