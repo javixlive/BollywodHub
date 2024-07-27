@@ -1,19 +1,18 @@
-import { CommonModule } from '@angular/common';
 import { Component, HostListener, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
 import { MovieService } from '../../shared/services/movie.service';
 import { Movie } from '../../interface/titles.interface';
 import { MovieCardComponent } from '../../components/movie-card/movie-card.component';
 
 @Component({
-  standalone: true,
   selector: 'app-home',
+  standalone: true,
   imports: [CommonModule, MovieCardComponent],
-  templateUrl:'home.component.html',
-  styles: ``
+  templateUrl: './home.component.html',
+  styleUrl: './home.component.css'
 })
-
-
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit{
 
   movies:Movie[]=[];
   loadedMoviesIds = new Set<number>();
@@ -33,6 +32,8 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
       this.loadMovies();
   }
 

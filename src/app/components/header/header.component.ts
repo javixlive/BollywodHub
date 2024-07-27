@@ -1,23 +1,26 @@
-import { NgFor, NgIf } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { NgFor, NgIf } from '@angular/common';
 import { Router } from '@angular/router';
-import { AuthService } from '../../auth/auth.service';
 import { Subscription } from 'rxjs';
 
+import { AuthService } from '../../auth/auth.service';
+
+
 @Component({
-  standalone: true,
   selector: 'app-header',
-  templateUrl: 'header.component.html',
-  styleUrl: 'header.component.scss',
-  imports: [NgFor, NgIf]
+  standalone: true,
+  imports: [NgFor, NgIf],
+  templateUrl: './header.component.html',
+  styleUrl: './header.component.css'
 })
+
 export class HeaderComponent implements OnInit, OnDestroy{
 
   isAuthenticated = false;
   private userSub: Subscription;
 
   constructor(
-    private router:Router, 
+    private router:Router,
     private authService: AuthService
   ){}
 

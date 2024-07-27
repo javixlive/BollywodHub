@@ -7,21 +7,6 @@ import { Cast, Credits } from "../../interface/credits.interface";
 
 import { environment } from "../../environment/environment";
 
-
-// require("dotenv").config();
-// const { TOKEN, URL } = process.env
-// require('dotenv').config();
-
-// const options = {
-//     include_adult: 'false',
-//     include_video: 'true',
-//     page: '1',
-//     headers: {
-//         accept: 'application/json',
-//         Authorization: token
-//     }
-// }
-
 //Authorization to make API request
 const token = environment.TOKEN
 const url = environment.URL
@@ -76,8 +61,6 @@ export class MovieService {
             catchError(err=> of(null))
         )
     }
-    ///////////
-
 
     resetMoviePage() {
         this.moviePage = 1;

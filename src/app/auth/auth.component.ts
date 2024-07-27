@@ -1,57 +1,64 @@
-import { Component } from "@angular/core";
-import { NgForm } from "@angular/forms";
-import { Observable } from "rxjs";
-import { Router } from "@angular/router";
+import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms'
 
-import { AuthResponseData } from "../interface/auth.interface";
-import { AuthService } from "./auth.service";
+import { AuthResponseData } from '../interface/auth.interface';
+import { AuthService } from './auth.service';
+import { LoadingSpinnerComponent } from '../shared/loading-spinner.component';
 
-@Component ({
-    selector: 'app-auth',
-    templateUrl: 'auth.component.html',
-    styleUrl: 'auth.component.scss'
+@Component({
+  selector: 'app-auth',
+  standalone: true,
+  imports: [CommonModule, LoadingSpinnerComponent, FormsModule],
+  templateUrl: './auth.component.html',
+  styleUrl: './auth.component.css'
 })
 
 export class AuthComponent {
-    isLoginMode = true;
-    isLoading = false;
-    error: string  = null;
+  isLoginMode = true;
+  isLoading = false;
+  error: string  = null;
 
-    constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
-    onSwitchMode() {
-        this.isLoginMode = !this.isLoginMode;
-    }
+  ngOnInit(): void {}
 
-    onSubmit(form: NgForm) { 
-        if(!form.valid) return;
+  onSwitchMode() {
+      this.isLoginMode = !this.isLoginMode;
+  }
 
-        const email = form.value.email;
-        const password = form.value.password;
+  onSubmit(form: NgForm) {
+      if(!form.valid) return;
 
-        let authObs: Observable<AuthResponseData>;
+      const email = form.value.email;
+      const password = form.value.password;
 
-        this.isLoading = true;
+      let authObs: Observable<AuthResponseData>;
 
-        if (this.isLoginMode) {
-            authObs = this.authService.login(email, password);
-          } else {
-            authObs = this.authService.signup(email, password);
+      this.isLoading = true;
+
+      if (this.isLoginMode) {
+          authObs = this.authService.login(email, password);
+        } else {
+          authObs = this.authService.signup(email, password);
+        }
+
+      authObs.subscribe(
+          resData => {
+            console.log(resData);
+            this.isLoading = false;
+            this.router.navigate(['/home']);
+          },
+          errorMessage => {
+            this.error = errorMessage;
+            this.isLoading = false;
           }
+        );
 
-        authObs.subscribe(
-            resData => {
-              console.log(resData);
-              this.isLoading = false;
-              this.router.navigate(['/home']); 
-            },
-            errorMessage => {
-              this.error = errorMessage;
-              this.isLoading = false;
-            }
-          );
+      form.reset();
 
-        form.reset();
-
-      }
+    }
 }

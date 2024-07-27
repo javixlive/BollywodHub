@@ -8,7 +8,6 @@ import {
 import { take, exhaustMap } from 'rxjs/operators';
 import { AuthService } from './auth.service';
 
-//video 306
 //add token to all ongoing requests
 @Injectable()
 export class AuthInterceptorService implements HttpInterceptor {

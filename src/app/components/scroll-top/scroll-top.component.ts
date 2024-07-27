@@ -1,13 +1,14 @@
-import { CommonModule, DOCUMENT } from '@angular/common';
 import { Component, HostListener, Inject } from '@angular/core';
+import { CommonModule, DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-scroll-top',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: 'scroll-top.component.html',
-  styleUrl: 'scroll-top.component.scss'
+  templateUrl: './scroll-top.component.html',
+  styleUrl: './scroll-top.component.css'
 })
+
 export class ScrollTopComponent {
   windowScrolled = false;
 

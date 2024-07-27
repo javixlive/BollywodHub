@@ -1,16 +1,18 @@
-import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { Movie } from '../../interface/titles.interface';
+import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+
+import { Movie } from '../../interface/titles.interface';
 import { PipesModule } from '../../pipes/pipes.module';
 
 @Component({
   selector: 'app-movie-card',
   standalone: true,
   imports: [CommonModule, PipesModule],
-  templateUrl:'movie-card.component.html',
-  styleUrl: 'movie-card.component.scss'
+  templateUrl: './movie-card.component.html',
+  styleUrl: './movie-card.component.css'
 })
+
 export class MovieCardComponent {
 
   @Input() movies?:Movie[]
@@ -18,10 +20,6 @@ export class MovieCardComponent {
   constructor(private router:Router) {}
   onMovieClick(movie:Movie){
     this.router.navigate(['/movie', movie.id])
-  }
-
-  onHideClick(movie:Movie) {
-
   }
 
 }

@@ -1,16 +1,17 @@
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-import { MovieCardComponent } from '../movie-card/movie-card.component';
 import { ActivatedRoute } from '@angular/router';
+
+import { MovieCardComponent } from '../movie-card/movie-card.component';
 import { MovieService } from '../../shared/services/movie.service';
 import { Movie } from '../../interface/titles.interface';
 
 @Component({
   selector: 'app-search',
   standalone: true,
-  imports:[CommonModule, MovieCardComponent],
-  templateUrl: 'search.component.html',
-  styles: ``
+  imports: [CommonModule, MovieCardComponent],
+  templateUrl: './search.component.html',
+  styleUrl: './search.component.css'
 })
 export class SearchComponent {
 

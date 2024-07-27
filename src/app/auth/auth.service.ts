@@ -10,11 +10,9 @@ import { User } from "./user.model";
 import { environment } from "../environment/environment";
 
 
-const key =  'AIzaSyARZhjs6HkxJmZxbaEsYfpcAEdGx9CCbsU';
-
 @Injectable({providedIn: 'root'})
 export class AuthService {
-  
+
   user = new BehaviorSubject<User>(null);
   private tokenExpirationTimer: any;
 
@@ -72,14 +70,14 @@ export class AuthService {
       if (!userData) {
         return;
       }
-  
+
       const loadedUser = new User(
         userData.email,
         userData.id,
         userData._token,
         new Date(userData._tokenExpirationDate)
       );
-  
+
       if (loadedUser.token) {
         this.user.next(loadedUser);
         const expirationDuration =
